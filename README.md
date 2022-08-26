@@ -1,19 +1,65 @@
+
 # Storefront Backend Project
 
-## Getting Started
+Second Project of Full Stack JavaScript Developer Udacity Nanodegree
+
+## Description
 
 
 
+## Installation
+
+Install my-project with npm
+
+```bash
+  npm install
+```
+    
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://link-to-project
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
 
 
+## Running Tests
 
+To run tests, run the following command
 
+```bash
+  npm run test
+```
 
+## Building, Formatting, Linting 
 
+To run tests, run the following command
 
-
-### 6. QA and `README.md`
-
-Before submitting, make sure that your project is complete with a `README.md`. Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
-
-Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission!
+```bash
+  npm run build
+```
+```bash
+  npm run prettier
+```
+```bash
+  npm run lint
+```
