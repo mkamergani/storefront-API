@@ -35,7 +35,7 @@ const show = async (_req: Request, res: Response) => {
 const create = async (req: Request, res: Response) => {
     const order: Order = {
         status: req.body.status,
-        userId: req.body.userId,
+        user_id: req.body.userId,
     };
     try {
         const newOrder = await store.create(order);
@@ -49,7 +49,7 @@ const create = async (req: Request, res: Response) => {
 const update = async (req: Request, res: Response) => {
     const order: Order = {
         status: req.body.status,
-        userId: req.body.userId,
+        user_id: req.body.userId,
     };
     try {
         const updatedOrder = await store.update(order, req.params.id);

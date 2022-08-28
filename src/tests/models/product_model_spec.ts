@@ -1,8 +1,21 @@
-import { Product, ProductStore } from '../../models/productModel';
+import { ProductStore } from '../../models/productModel';
+import client from '../../database';
 
 const store = new ProductStore();
 
 describe('Testing Product Model', () => {
+    const product = {
+        name: 'air jordan',
+        price: 250,
+        category: 'shoes',
+    };
+    afterAll(async () => {
+        const connection = await client.connect();
+        const products_sql =
+            'DELETE FROM products; \n ALTER SEQUENCE products_id_seq RESTART WITH 1;';
+        await connection.query(products_sql);
+        connection.release();
+    });
     it('should have an index method', () => {
         expect(store.index).toBeDefined();
     });
@@ -19,11 +32,7 @@ describe('Testing Product Model', () => {
         expect(store.delete).toBeDefined();
     });
     it('create method should add a Product', async () => {
-        const result = await store.create({
-            name: 'air jordan',
-            price: 250,
-            category: 'shoes',
-        });
+        const result = await store.create(product);
         expect(result).toEqual({
             id: 1,
             name: 'air jordan',

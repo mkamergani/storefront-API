@@ -3,7 +3,7 @@ import client from '../database';
 export type Order = {
     id?: number;
     status: string;
-    userId: number;
+    user_id: number | string;
 };
 
 export class OrderStore {
@@ -41,7 +41,7 @@ export class OrderStore {
             const connection = await client.connect();
             const sql =
                 'INSERT INTO orders(status, user_id) VALUES($1, $2) RETURNING *';
-            const result = await connection.query(sql, [o.status, o.userId]);
+            const result = await connection.query(sql, [o.status, o.user_id]);
             connection.release();
             return result.rows[0];
         } catch (err) {
@@ -58,7 +58,7 @@ export class OrderStore {
 
             const result = await connection.query(sql, [
                 o.status,
-                o.userId,
+                o.user_id,
                 id,
             ]);
             connection.release();

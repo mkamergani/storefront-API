@@ -7,8 +7,8 @@ const store = new UserStore();
 
 const userRoutes = (app: express.Application) => {
     app.post('/users/authenticate', authenticate);
-    app.get('/users', index);
-    app.get('/users/:id', show);
+    app.get('/users', verifyAuthToken, index);
+    app.get('/users/:id', verifyAuthToken, show);
     app.post('/users', create);
     app.put('/users/:id', verifyAuthToken, update);
     app.delete('/users/:id', verifyAuthToken, destroy);
@@ -56,9 +56,9 @@ const show = async (_req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     const user: User = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        userName: req.body.userName,
+        firstname: req.body.firstName,
+        lastname: req.body.lastName,
+        username: req.body.userName,
         password: req.body.password,
     };
     try {
@@ -76,9 +76,9 @@ const create = async (req: Request, res: Response) => {
 
 const update = async (req: Request, res: Response) => {
     const user: User = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        userName: req.body.userName,
+        firstname: req.body.firstName,
+        lastname: req.body.lastName,
+        username: req.body.userName,
         password: req.body.password,
     };
     try {

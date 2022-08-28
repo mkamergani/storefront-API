@@ -10,7 +10,7 @@ export class DashboardQueries {
                 'SELECT * FROM orders WHERE user_id=($1) AND status=($2)';
             const result = await connection.query(sql, [userId, status]);
             connection.release();
-            return result.rows[0];
+            return result.rows;
         } catch (err) {
             console.log(err);
             throw new Error(`Cannot Get User Orders ${err}`);
@@ -22,7 +22,7 @@ export class DashboardQueries {
             const sql = 'SELECT * FROM products WHERE category=($1)';
             const result = await connection.query(sql, [category]);
             connection.release();
-            return result.rows[0];
+            return result.rows;
         } catch (err) {
             console.log(err);
             throw new Error(`Cannot Get Products ${err}`);

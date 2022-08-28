@@ -46,10 +46,10 @@ These are the notes from a meeting with the frontend developer that describe wha
 Table: products (id:Integer, name:varchar, price:Integer, category:varchar)
 
 ##### Users table
-Table: users (id:Integer, firstName:varchar, lastName:varchar, password,varchar)
+Table: users (id:Integer, firstName:varchar, lastName:varchar, userName:varchar, password:varchar)
 
 ##### Orders table
-Table: orders (id:Integer, status:varchar, user_id:Integer[foreign key to users table])
+Table: orders (id:Integer, status:varchar, user_id:bigint[foreign key to users table])
 
 ##### Order Products table
-Table: order_products (id:Integer, order_id:[foreign key to orders table], product_id:Integer[foreign key to products table])
+Table: order_products (id:Integer, quantity:Integer, order_id:bigint[foreign key to orders table], product_id:bigint[foreign key to products table])
