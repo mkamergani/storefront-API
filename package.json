@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run build && node build/server",
     "dev": "nodemon src/server.ts",
+    "setup": "db-migrate up",
     "build": "npx tsc",
     "test": "set ENV=test&& db-migrate --env test up && npm run build && npm run jasmine && db-migrate db:drop storefront_test",
     "jasmine": "jasmine",
