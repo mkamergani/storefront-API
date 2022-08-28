@@ -3,6 +3,8 @@
 
 Second Project of the Full Stack JavaScript Developer Udacity Nanodegree. a JavaScript API based on a requirements given by the stakeholders.
 
+![Logo](https://video.udacity-data.com/topher/2021/March/605b8d97_noun-store-front-3800639/noun-store-front-3800639.png)
+
 
 ## Objectives
 
